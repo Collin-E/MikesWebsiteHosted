@@ -68,25 +68,56 @@ body {
     transform: translateY(-2px);
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
 /* ======================== */
 /* HERO SECTION */
 /* ======================== */
 
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 8rem 2rem;
+    background: none;
+    padding: 0;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: none;
+    display: block;
 }
 
 .hero-content {
     width: 100%;
 }
 
+ .hero-content img {
+     width: 100%;
+     height: auto;
+     display: block;
+     object-fit: cover;
+     max-height: 525px;
+ }
 /* ======================== */
 /* SECTION CONTAINER */
 /* ======================== */
@@ -148,18 +179,24 @@ section h2::after {
     line-height: 1.8;
 }
 
-.background-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
-}
-
-.background-image img:hover {
-    transform: scale(1.02);
-}
-
+ .background-image img {
+     width: 100%;
+     height: auto;
+     border-radius: 8px;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+     transition: transform 0.3s ease;
+     position: relative;
+     left: 10%;
+ }
+ 
+ .background-image {
+     display: flex;
+     justify-content: flex-end;
+ }
+ 
+ .background-image img:hover {
+     transform: scale(1.02);
+ }
 /* ======================== */
 /* CLIENTS SECTION */
 /* ======================== */
@@ -284,7 +321,7 @@ section h2::after {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: center;
+    align-items: stretch;
 }
 
 .issue-areas-text h2 {
@@ -310,18 +347,27 @@ section h2::after {
     height: 100%;
 }
 
-.issue-areas-image img {
+.issue-areas-image {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.issue-areas-image img:hover {
-    transform: scale(1.02);
-}
-
+ .issue-areas-image img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     border-radius: 8px;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+     transition: transform 0.3s ease;
+     max-height: 650px;
+ }
+ 
+ .issue-areas-image img:hover {
+     transform: scale(1.02);
+ }
 /* ======================== */
 /* ISSUES SECTION (OLD - KEEPING FOR REFERENCE) */
 /* ======================== */
@@ -475,6 +521,46 @@ section h2::after {
 
     .issue-areas-text h2::after {
         margin: 1rem auto 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #1a3a52 0%, #2c5aa0 100%);
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        display: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 1rem 2rem;
+        width: 100%;
+        text-align: left;
+        border-radius: 0;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        transform: none;
     }
 }
 
