@@ -181,6 +181,7 @@ section h2::after {
 
  .background-image img {
      width: 100%;
+     max-width: 350px;
      height: auto;
      border-radius: 8px;
      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -192,6 +193,7 @@ section h2::after {
  .background-image {
      display: flex;
      justify-content: flex-end;
+     align-items: flex-start;
  }
  
  .background-image img:hover {
