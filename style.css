@@ -260,6 +260,10 @@ section h2::after {
     background-color: white;
 }
 
+.services .section-container {
+    padding-top: 0.5rem;
+}
+
 .services-intro {
     font-size: 1.1rem;
     color: #555;
